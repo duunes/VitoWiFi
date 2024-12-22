@@ -103,6 +103,19 @@ DPValue conv4_3600_F::decode(const uint8_t* in) {
   return out;
 }
 
+void conv4_1000_F::encode(uint8_t* out, DPValue in) {
+  int32_t tmp = floor((in.getFloat() * 1000) + 0.5);
+  out[3] = tmp >> 24;
+  out[2] = tmp >> 16;
+  out[1] = tmp >> 8;
+  out[0] = tmp & 0xFF;
+}
+DPValue conv4_1000_F::decode(const uint8_t* in) {
+  int32_t tmp = in[3] << 24 | in[2] << 16 | in[1] << 8 | in[0];
+  DPValue out(tmp / 1000.0f);
+  return out;
+}
+
 void conv1_10_F::encode(uint8_t* out, DPValue in) {
   out[0] = floor((in.getFloat() * 10) + 0.5);
 }

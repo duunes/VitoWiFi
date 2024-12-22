@@ -102,3 +102,5 @@ typedef DPTempS DPMode;
 typedef Datapoint<conv4_3600_F> DPHours;
 typedef Datapoint<conv1_10_F> DPCoP;
 typedef Datapoint<conv8_1_Timer> DPTimer;
+typedef Datapoint<conv4_1000_F> DPVerbrauch;
+
